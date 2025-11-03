@@ -19,7 +19,7 @@ SQL joins • Aggregations • Subqueries • Python–SQLite integration • Da
 
 ---
 
-### 🧠 How this project works
+### How this project works
 This project was originally completed in IBM’s SQL course using a Jupyter Notebook.  
 All datasets were loaded into **SQLite** tables, and SQL queries (see `queries.sql`) were used to analyse:
 - crime rates by community area,
