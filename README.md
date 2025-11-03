@@ -1,6 +1,8 @@
 🏙 IBM SQL Final Project — Chicago Data Analysis
+
 This project explores the relationship between socioeconomic indicators, public school performance, and crime data across Chicago using SQL and Python.
 It’s part of IBM’s Databases and SQL for Data Science with Python course on Coursera.
+
 🧠 Key Highlights
 Queried and joined 3 real-world datasets: Census, Crime, and Schools.
 Used SQL in SQLite to extract insights on community hardship, poverty, and crime.
