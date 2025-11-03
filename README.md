@@ -15,3 +15,16 @@ Datasets
    
 Skills Demonstrated
 SQL joins • Aggregations • Subqueries • Python–SQLite integration • Data analysis
+
+
+---
+
+### 🧠 How this project works
+This project was originally completed in IBM’s SQL course using a Jupyter Notebook.  
+All datasets were loaded into **SQLite** tables, and SQL queries (see `queries.sql`) were used to analyse:
+- crime rates by community area,
+- school safety vs socioeconomic conditions,
+- and relationships between income levels and hardship indexes.
+
+Due to course restrictions, the original notebook and one dataset are not included here,  
+but all **core SQL logic** and cleaned datasets are preserved in this repository.
