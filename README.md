@@ -8,6 +8,9 @@ Queried and joined 3 real-world datasets: Census, Crime, and Schools.
 Used SQL in SQLite to extract insights on community hardship, poverty, and crime.
 Integrated Python (pandas + ipython-sql) to automate and visualize results.
 
+#### 📂 All SQL queries and insights
+[View queries.sql](queries.sql)
+
 Datasets
 1) Socioeconomic Indicators in Chicago
 2) Chicago Public Schools
