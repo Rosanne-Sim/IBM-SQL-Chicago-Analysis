@@ -1,19 +1,12 @@
-/* =======================================================
-   IBM SQL Final Project — Chicago Data Analysis
-   Author: Rosanne Sim
-   Course: Databases and SQL for Data Science with Python (IBM)
-   Description: SQL queries used to analyze socioeconomic,
-                education, and crime data across Chicago.
-   ======================================================= */
-
-
 /* -------------------------------------------------------
    Problem 1: Total number of crimes recorded
    ------------------------------------------------------- */
 -- Counts all crime records in the CHICAGO_CRIME_DATA table
 SELECT COUNT(*) AS total_crimes
 FROM CHICAGO_CRIME_DATA;
-/* Insight: Provides the overall scale of reported incidents in the dataset. */
+/* Insight: Establishes the baseline scale of criminal activity across Chicago,
+   serving as a reference point for comparing crime distribution and intensity
+   between communities. */
 
 
 /* -------------------------------------------------------
@@ -22,7 +15,8 @@ FROM CHICAGO_CRIME_DATA;
 SELECT community_area_name, community_area_number
 FROM CENSUS_DATA
 WHERE per_capita_income < 11000;
-/* Insight: Identifies communities with lower income levels — potential hotspots for social vulnerability. */
+/* Insight: Highlights low-income neighborhoods that may require greater
+   socioeconomic support or targeted public investment to address inequality. */
 
 
 /* -------------------------------------------------------
@@ -31,7 +25,8 @@ WHERE per_capita_income < 11000;
 SELECT case_number, primary_type, description
 FROM CHICAGO_CRIME_DATA
 WHERE description LIKE '%MINOR%';
-/* Insight: Detects all crimes that explicitly mention minors in their descriptions. */
+/* Insight: Reveals incidents involving minors, offering insights into youth-related
+   crime exposure and informing child protection or school safety policies. */
 
 
 /* -------------------------------------------------------
@@ -41,7 +36,8 @@ SELECT case_number, primary_type, description
 FROM CHICAGO_CRIME_DATA
 WHERE primary_type = 'KIDNAPPING'
   AND description LIKE '%CHILD%';
-/* Insight: Extracts all child-related kidnapping cases for focused safety analysis. */
+/* Insight: Identifies child-related kidnapping cases — a critical subset for
+   law-enforcement prioritization and community safety awareness. */
 
 
 /* -------------------------------------------------------
@@ -50,7 +46,8 @@ WHERE primary_type = 'KIDNAPPING'
 SELECT DISTINCT primary_type
 FROM CHICAGO_CRIME_DATA
 WHERE location_description LIKE '%SCHOOL%';
-/* Insight: Highlights common crime categories that occur within or near school premises. */
+/* Insight: Exposes the range of crime categories within school environments,
+   guiding preventive measures and safety training for educational institutions. */
 
 
 /* -------------------------------------------------------
@@ -60,7 +57,8 @@ SELECT elementary_middle_or_high_school AS school_type,
        AVG(safety_score) AS avg_safety_score
 FROM CHICAGO_PUBLIC_SCHOOLS
 GROUP BY elementary_middle_or_high_school;
-/* Insight: Measures perceived safety differences across elementary, middle, and high schools. */
+/* Insight: Compares perceived safety levels across school types, highlighting
+   where safety initiatives may be most needed (e.g., high schools often rate lower). */
 
 
 /* -------------------------------------------------------
@@ -71,7 +69,8 @@ SELECT community_area_name,
 FROM CENSUS_DATA
 ORDER BY percent_households_below_poverty DESC
 LIMIT 5;
-/* Insight: Pinpoints neighborhoods facing the most economic hardship. */
+/* Insight: Pinpoints communities facing concentrated economic hardship,
+   essential for resource allocation, social aid, and policy intervention planning. */
 
 
 /* -------------------------------------------------------
@@ -83,7 +82,8 @@ FROM CHICAGO_CRIME_DATA
 GROUP BY community_area_number
 ORDER BY total_crimes DESC
 LIMIT 1;
-/* Insight: Identifies the single community area with the highest crime frequency. */
+/* Insight: Determines the most crime-affected area, enabling data-driven
+   prioritization of policing and community engagement programs. */
 
 
 /* -------------------------------------------------------
@@ -95,7 +95,8 @@ WHERE hardship_index = (
     SELECT MAX(hardship_index)
     FROM CENSUS_DATA
 );
-/* Insight: Returns the area under greatest social and economic stress based on the hardship index metric. */
+/* Insight: Surfaces the area experiencing the most compounded social and
+   economic challenges — useful for integrated urban renewal and welfare planning. */
 
 
 /* -------------------------------------------------------
@@ -110,5 +111,6 @@ WHERE community_area_number = (
     ORDER BY COUNT(*) DESC
     LIMIT 1
 );
-/* Insight: Combines subqueries and joins logic to match the most crime-prone community with its name. */
-
+/* Insight: Connects census and crime data to identify the community facing the
+   highest crime concentration, reinforcing the link between socioeconomic
+   hardship and public safety outcomes. */
